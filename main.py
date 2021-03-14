@@ -1,5 +1,4 @@
-# A basic command line virtual assistant which assists in math equations as well as miscellaneous commands.
-# Author: Jonathan Wukitsch
+"""A basic command line virtual assistant which assists in math equations as well as miscellaneous commands."""
 __author__ = "Jonathan Wukitsch"
 
 import os
@@ -9,7 +8,7 @@ import random
 
 #region Helper functions
 
-# Validate user input for the calculator function (make sure it's a valid number)
+"""Validate user input for the calculator function (make sure it's a valid number)"""
 def validate_input(num):
     try:
         float(num)
@@ -18,8 +17,8 @@ def validate_input(num):
     return True
 
 
-# This isn't really necessary in PyCharm/VSCode since it uses a virtual environment
-# (cls or clear both work) but we might as well handle it anyway
+"""This isn't really necessary in PyCharm/VSCode since it uses a virtual environment
+(cls or clear both work) but we might as well handle it anyway"""
 def clear_console():
     user_system = platform.system()
 
@@ -36,6 +35,7 @@ def clear_console():
 
 #region Calculator functions
 
+"""Add two numbers together (after checking that they are both valid integers) and return the result"""
 def add(num1, num2):
     if validate_input(num1) and validate_input(num2):
         return float(num1) + float(num2)  # Perform addition according to project specifications
@@ -46,6 +46,7 @@ def add(num1, num2):
         return "Error. Invalid input numbers."
 
 
+"""Subtract two numbers from each other (after checking that they are both valid integers) and return the result"""
 def subtract(num1, num2):
     if validate_input(num1) and validate_input(num2):
         return float(num1) - float(num2)  # Perform subtraction according to project specifications
@@ -53,6 +54,7 @@ def subtract(num1, num2):
         return "Error. Invalid input numbers."
 
 
+"""Multiply two numbers together (after checking that they are both valid integers) and return the result"""
 def multiply(num1, num2):
     if validate_input(num1) and validate_input(num2):
         return float(num1) * float(num2)  # Perform multiplication according to project specifications
@@ -60,6 +62,7 @@ def multiply(num1, num2):
         return "Error. Invalid input numbers."
 
 
+"""Divide two numbers (after checking that they are both valid integers) and return the result"""
 def divide(num1, num2):
     if validate_input(num1) and validate_input(num2):
         try:
@@ -70,6 +73,7 @@ def divide(num1, num2):
         return "Error. Invalid input numbers."
 
 
+"""Find the remainder of two numbers (after checking that they are both valid integers) and return the result"""
 def modulus(num1, num2):
     if validate_input(num1) and validate_input(num2):
         try:
@@ -80,6 +84,7 @@ def modulus(num1, num2):
         return "Error. Invalid input numbers."
 
 
+"""Set one number's exponent to another (after checking that they are both valid integers) and return the result"""
 def exponent(num1, num2):
     if validate_input(num1) and validate_input(num2):
         return float(num1) ** float(num2)  # Perform exponential operations according to project specifications
@@ -87,6 +92,7 @@ def exponent(num1, num2):
         return "Error. Invalid input numbers."
 
 
+"""Divide two numbers and round down (after checking that they are both valid integers) and return the result"""
 def floor_division(num1, num2):
     if validate_input(num1) and validate_input(num2):
         try:
@@ -101,6 +107,8 @@ def floor_division(num1, num2):
 
 #region Main program function
 
+
+"""The main function of the program, which handles almost all logic and core functionality"""
 def main():
     user_full_name = input("Hello! Please enter your name to begin: ")  # Input according to project specifications
 
