@@ -1,5 +1,5 @@
-"""A basic command line virtual assistant which assists in math equations,
-as well as miscellaneous commands."""
+"""A basic command line virtual assistant (of sorts) which assists in
+math equations as well as miscellaneous commands."""
 __author__ = "Jonathan Wukitsch"
 
 import os
