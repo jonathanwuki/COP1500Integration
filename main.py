@@ -20,9 +20,7 @@ def validate_input(num):
 
 
 def clear_console():
-    """This isn't really necessary in PyCharm/VSCode since it uses a virtual
-    environment (cls or clear both work),
-    but we might as well handle it anyway"""
+    """Clear the console for a cleaner appearance"""
     user_system = platform.system()
 
     if user_system == "Windows":
