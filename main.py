@@ -6,8 +6,8 @@ import os
 import platform
 import random
 
-# region Helper functions
 
+# region Helper functions
 
 def validate_input(num):
     """Validate user input for the calculator function
@@ -35,7 +35,6 @@ def clear_console():
 
 
 # region Calculator functions
-
 
 def add(num1, num2):
     """Add two numbers together (after checking that they're both valid ints)
@@ -117,8 +116,8 @@ def divide_floor(num1, num2):
 
 # endregion
 
-# region Main program function
 
+# region Main program function
 
 def main():
     """The main function of the program, which handles almost all logic
@@ -266,7 +265,6 @@ def main():
 
                     # Use * string operator according to proj. specs
                     print(("\n" + echo_statement) * 15)
-
                 elif user_input == "guess num":
                     # Generate a random number (user must guess it)
 
@@ -337,7 +335,6 @@ def main():
             user_input = input("Enter a command: ").lower()
     else:  # Handle exiting of program
         print("\nExiting program. Thank you, %s!" % user_full_name)
-
 
 # endregion
 
