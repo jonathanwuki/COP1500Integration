@@ -117,6 +117,87 @@ def divide_floor(num1, num2):
 # endregion
 
 
+# region Program sub-functions
+
+def run_echo_chamber():
+    """Repeats user input 15 times to act as an 'echo' of sorts."""
+    # Use end argument according to proj. specs
+    print("\nWelcome to the echo chamber!", end=" ")
+    echo_statement = input("Make your voice heard! "
+                           "Enter something: ")
+
+    while echo_statement == "" or echo_statement.isspace():
+        print("\nYou need to enter something!")
+        echo_statement = input("Make your voice heard! "
+                               "Enter something: ")
+
+    # Use * string operator according to proj. specs
+    print(("\n" + echo_statement) * 15)
+
+
+def run_guess_num():
+    """Generate a random number and have the user guess it."""
+
+    # Random number between 1 and 10
+    random_num = random.randint(1, 10)
+
+    user_guess = input("Guess any number between 1 and 10! "
+                       "But beware, if you choose incorrectly,"
+                       " the number will change! ")
+
+    while validate_input(user_guess):
+        if int(user_guess) != random_num:
+            if int(user_guess) < random_num:
+                print("\nYou guessed too low! Try again.\n")
+                if random_num < 10:
+                    # Only increment if we are less than 10
+
+                    # Shortcut op. according to proj. specs
+                    random_num += 1
+            elif int(user_guess) > random_num:
+                # > relational op. according to proj. specs
+                print("\nYou guessed too high! Try again.\n")
+                if random_num > 1:
+                    # Only decrement if we are greater than 1
+
+                    # Shortcut op. according to proj. specs
+                    random_num -= 1
+            else:
+                print("Oh my. It looks like an error "
+                      "has occurred. Please try again.")
+        else:
+            print("\nYou guessed correctly! "
+                  "The number was %s." % random_num)
+            break
+
+        user_guess = input("Guess any number between "
+                           "1 and 10! But beware, if you "
+                           "choose incorrectly, the number"
+                           " will change! ")
+    else:
+        print("\nThat isn't a number! Let's try this again...")
+        run_guess_num()
+
+
+def run_invert_triangle():
+    """Display an inverted triangle (rows determined by user)."""
+
+    row_count = input("Enter number of rows to display: ")
+
+    if validate_input(row_count):
+        print()  # Empty line for cleaner look
+        # For loop according to proj. specs
+        for i in range(0, int(row_count)):
+            # range() function according to proj. specs
+            for x in range(1, int(row_count) - i + 1):
+                print(x, end=" ")
+            print()
+    else:
+        print("\nThat isn't a number! Try again.")
+
+# endregion
+
+
 # region Main program function
 
 def main():
@@ -253,72 +334,11 @@ def main():
                 if user_input == "joke":  # Tell a random joke
                     print("\n" + random.choice(joke_bank))
                 elif user_input == "echo":  # Put the user in an echo chamber.
-                    # Use end argument according to proj. specs
-                    print("\nWelcome to the echo chamber!", end=" ")
-                    echo_statement = input("Make your voice heard! "
-                                           "Enter something: ")
-
-                    while echo_statement == "" or echo_statement.isspace():
-                        print("\nYou need to enter something!")
-                        echo_statement = input("Make your voice heard! "
-                                               "Enter something: ")
-
-                    # Use * string operator according to proj. specs
-                    print(("\n" + echo_statement) * 15)
+                    run_echo_chamber()
                 elif user_input == "guess num":
-                    # Generate a random number (user must guess it)
-
-                    # Random number between 1 and 10
-                    random_num = random.randint(1, 10)
-
-                    user_guess = input("Guess any number between 1 and 10! "
-                                       "But beware, if you choose incorrectly,"
-                                       " the number will change! ")
-
-                    if validate_input(user_guess):
-                        # != relational operator according to proj. specs
-                        while int(user_guess) != random_num:
-                            # < relational operator according to proj. specs
-                            if int(user_guess) < random_num:
-                                print("You guessed too low! Try again.")
-                                if random_num < 10:
-                                    # Only increment if we are less than 10
-
-                                    # Shortcut op. according to proj. specs
-                                    random_num += 1
-                            elif int(user_guess) > random_num:
-                                # > relational op. according to proj. specs
-                                print("You guessed too high! Try again.")
-                                if random_num > 1:
-                                    # Only decrement if we are greater than 1
-
-                                    # Shortcut op. according to proj. specs
-                                    random_num -= 1
-                            else:
-                                print("Oh my. It looks like an error "
-                                      "has occurred. Please try again.")
-
-                            user_guess = input("Guess any number between "
-                                               "1 and 10! But beware, if you "
-                                               "choose incorrectly, the number"
-                                               " will change! ")
-
-                        print("You guessed correctly! "
-                              "The number was %s." % random_num)
-                    else:
-                        print("That isn't a number! Try again next time.")
+                    run_guess_num()
                 elif user_input == "invert triangle":
-                    # Display inverted triangle (rows determined by user)
-
-                    row_count = input("Enter number of rows to display: ")
-
-                    if validate_input(row_count):
-                        # For loop according to proj. specs
-                        for i in range(0, int(row_count)):
-                            # range() function according to proj. specs
-                            for x in range(1, int(row_count) - i + 1):
-                                print(x, end=" ")
-                            print()
+                    run_invert_triangle()
                 elif user_input == "quit":  # User wants to quit the program
                     quit_input = input("Are you sure you want to quit? "
                                        "Enter Y to confirm. ").lower()
