@@ -1,5 +1,7 @@
 # COP1500Integration
-Integration project for COP 1500 at Florida Gulf Coast University
+Integration project for COP 1500 at Florida Gulf Coast University (Spring 2021)
+
+For this project, we were to create one program integrating all of the programming skills we learned throughout the semester. I created a basic command-based application which mainly serves as a calculator but also contains other miscellaneous features.
 
 ## Project Requirements
 
