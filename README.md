@@ -1,2 +1,26 @@
 # COP1500Integration
 Integration project for COP 1500 at Florida Gulf Coast University
+
+## Project Requirements
+
+### Sprint 1
+- [x] Proper documentation
+- [x] Simple I/O (`print()` function with `end=` and `sep=` arguments), `input()` function)
+- [x] Basic calculations (addition, subtraction, etc.)
+- [x] String operators
+- [x] Min. 50 lines of code
+
+### Sprint 2
+- [x] Shortcut operators
+- [x] Conditional structures/statements
+- [x] Relational and boolean operators
+- [x] Iterative structures (`while`, `for`, `range()`, `in`)
+- [x] Function definitions and parameter passing
+- [x] Min. 100 lines of code
+
+### Project Final
+- [x] Enhance code quality/security (no warnings from PyCharm with PEP 8 style guide)
+- [x] All functions must have docstrings/proper commentation
+- [x] Consider HCI and improve user interface
+- [x] Must act as one cohesive program
+- [x] Min. 150 lines of code
