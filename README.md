@@ -26,3 +26,16 @@ For this project, we were to create one program integrating all of the programmi
 - [x] Consider HCI and improve user interface
 - [x] Must act as one cohesive program
 - [x] Min. 150 lines of code
+
+## Installation/Building
+In order to build this project, you need to have Python 3 or later. I used PyCharm for compliation, but any IDE or interpreter should work.
+
+#### Instructions:
+
+Clone a copy of this git repository by running:
+
+```bash
+git clone git://github.com/jonathanwuki/COP1500Integration.git
+```
+
+Open `main.py` and compile (exact instructions vary by IDE/interpreter).
