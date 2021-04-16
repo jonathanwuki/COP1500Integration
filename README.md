@@ -1,5 +1,5 @@
 # COP1500Integration
-[![Language](https://img.shields.io/badge/language-Python-green.svg?style=flat-square))](https://www.python.org/)
+[![Language](https://img.shields.io/badge/language-Python-green.svg?style=flat-square)](https://www.python.org/)
 
 Integration project for COP 1500 at Florida Gulf Coast University (Spring 2021)
 
