@@ -10,8 +10,12 @@ import random
 # region Helper functions
 
 def validate_input(num):
-    """Validate user input for the calculator function
-    (make sure it's a valid number)"""
+    """
+    Validates user input for the calculator function
+    (makes sure it's a valid number).
+    :param num: A number passed in to be validated.
+    :return: True or False depending on validation outcome.
+    """
     try:
         float(num)
     except ValueError:  # This will be thrown if the input isn't a number
@@ -20,7 +24,7 @@ def validate_input(num):
 
 
 def clear_console():
-    """Clear the console for a cleaner appearance"""
+    """Clears the console for a cleaner appearance."""
     user_system = platform.system()
 
     if user_system == "Windows":
@@ -31,14 +35,20 @@ def clear_console():
         print("Unsupported operating system (%s). Exiting." % user_system)
         quit()
 
+
 # endregion
 
 
 # region Calculator functions
 
 def add(num1, num2):
-    """Add two numbers together (after checking that they're both valid ints)
-    and return the result"""
+    """
+    Adds two numbers together (after checking that they're both valid ints)
+    and returns the result.
+    :param num1: The initial number to be added to.
+    :param num2: The number to add to the first number.
+    :return: The result of the addition of each number.
+    """
     if validate_input(num1) and validate_input(num2):
         # Perform addition according to project specifications
         return float(num1) + float(num2)
@@ -47,8 +57,14 @@ def add(num1, num2):
 
 
 def subtract(num1, num2):
-    """Subtract two numbers from each other
-    (after checking that they are both valid integers) and return the result"""
+    """
+    Subtracts two numbers from each other
+    (after checking that they're both valid ints)
+    and returns the result.
+    :param num1: The initial number to be subtracted from.
+    :param num2: The number to subtract from the first number.
+    :return: The result of the subtraction of each number.
+    """
     if validate_input(num1) and validate_input(num2):
         # Perform subtraction according to project specifications
         return float(num1) - float(num2)
@@ -57,8 +73,13 @@ def subtract(num1, num2):
 
 
 def multiply(num1, num2):
-    """Multiply two numbers together
-    (after checking that they are both valid integers) and return the result"""
+    """
+    Multiplies two numbers together
+    (after checking that they're both valid ints) and returns the result.
+    :param num1: The initial number to be multiplied.
+    :param num2: The number to multiply the first number by.
+    :return: The result of the multiplication of each number.
+    """
     if validate_input(num1) and validate_input(num2):
         # Perform multiplication according to project specifications
         return float(num1) * float(num2)
@@ -67,8 +88,13 @@ def multiply(num1, num2):
 
 
 def divide(num1, num2):
-    """Divide two numbers (after checking that they are both valid integers)
-    and return the result"""
+    """
+    Divides two numbers (after checking that they're both valid ints)
+    and returns the result
+    :param num1: The first number (the number to be divided).
+    :param num2: The number to divide the first number by.
+    :return: The result of the division of the two numbers.
+    """
     if validate_input(num1) and validate_input(num2):
         try:
             # Perform division according to project specifications
@@ -80,8 +106,13 @@ def divide(num1, num2):
 
 
 def perform_modulus(num1, num2):
-    """Find the remainder of two numbers
-    (after checking that they are both valid integers) and return the result"""
+    """
+    Finds the remainder of two numbers
+    (after checking that they're both valid ints) and returns the result.
+    :param num1: The first number (to be divided).
+    :param num2: The number to divide the first number by.
+    :return: The remainder of the division of the two numbers.
+    """
     if validate_input(num1) and validate_input(num2):
         try:
             # Perform modulus according to project specifications
@@ -93,8 +124,13 @@ def perform_modulus(num1, num2):
 
 
 def raise_to_power(num1, num2):
-    """Set one number's exponent to another
-    (after checking that they are both valid integers) and return the result"""
+    """
+    Sets one number's exponent to another
+    (after checking that they're both valid ints) and returns the result.
+    :param num1: The number of which to raise to a power.
+    :param num2: The power to raise the first number to.
+    :return: The result of the exponential operation of the two numbers.
+    """
     if validate_input(num1) and validate_input(num2):
         # Perform exponential operations according to project specifications
         return float(num1) ** float(num2)
@@ -103,8 +139,13 @@ def raise_to_power(num1, num2):
 
 
 def divide_floor(num1, num2):
-    """Divide two numbers and round down
-    (after checking that they are both valid integers) and return the result"""
+    """
+    Divides two numbers and rounds down
+    (after checking that they're both valid ints) and returns the result.
+    :param num1: The number to be divided.
+    :param num2: The number to divide the first number by.
+    :return: The result of the (floor) division of the two numbers.
+    """
     if validate_input(num1) and validate_input(num2):
         try:
             # Perform floor division according to project specifications
@@ -113,6 +154,7 @@ def divide_floor(num1, num2):
             return "Error. You cannot divide by zero."
     else:
         return "Error. Invalid input numbers."
+
 
 # endregion
 
@@ -136,7 +178,7 @@ def run_echo_chamber():
 
 
 def run_guess_num():
-    """Generate a random number and have the user guess it."""
+    """Generates a random number and has the user guess it."""
 
     # Random number between 1 and 10
     random_num = random.randint(1, 10)
@@ -180,7 +222,7 @@ def run_guess_num():
 
 
 def run_invert_triangle():
-    """Display an inverted triangle (rows determined by user)."""
+    """Displays an inverted triangle (rows determined by user)."""
 
     row_count = input("Enter number of rows to display: ")
 
@@ -194,6 +236,8 @@ def run_invert_triangle():
             print()
     else:
         print("\nThat isn't a number! Try again.")
+        run_invert_triangle()
+
 
 # endregion
 
@@ -333,11 +377,12 @@ def main():
             else:  # User did not enter a calculator command
                 if user_input == "joke":  # Tell a random joke
                     print("\n" + random.choice(joke_bank))
-                elif user_input == "echo":  # Put the user in an echo chamber.
+                elif user_input == "echo":  # Put the user in an echo chamber
                     run_echo_chamber()
-                elif user_input == "guess num":
+                elif user_input == "guess num":  # Have the user guess a number
                     run_guess_num()
                 elif user_input == "invert triangle":
+                    # Show an inverted triangle (rows determined by user)
                     run_invert_triangle()
                 elif user_input == "quit":  # User wants to quit the program
                     quit_input = input("Are you sure you want to quit? "
@@ -348,7 +393,7 @@ def main():
                     else:
                         print("Exit aborted.")
 
-            input("\nPress any key to continue.\n")
+            input("\nPress enter to continue.\n")
             user_input = input("Enter a command: ").lower()
         else:  # User entered invalid command
             print("\nThat isn't a command. Try again.\n")
@@ -356,8 +401,9 @@ def main():
     else:  # Handle exiting of program
         print("\nExiting program. Thank you, %s!" % user_full_name)
 
+
 # endregion
 
 
-# Call to main
-main()
+if __name__ == '__main__':
+    main()  # Call to main
