@@ -161,6 +161,19 @@ def divide_floor(num1, num2):
 
 # region Program sub-functions
 
+def show_all_commands(commands_list):
+    """Displays all of this program's available commands to the user."""
+    print("==========\nAvailable commands:\n")
+
+    # I know it would be ideal to return something here rather than just
+    # printing it -- but I don't want to have to repeat the sep and end
+    # arguments wherever I'm calling this function.
+
+    # Print statement with separator argument according to proj. specs
+    print(*commands_list, sep=", ",
+          end="\n==========\n")
+
+
 def run_echo_chamber():
     """Repeats user input 15 times to act as an 'echo' of sorts."""
     # Use end argument according to proj. specs
@@ -179,7 +192,6 @@ def run_echo_chamber():
 
 def run_guess_num():
     """Generates a random number and has the user guess it."""
-
     # Random number between 1 and 10
     random_num = random.randint(1, 10)
 
@@ -223,7 +235,6 @@ def run_guess_num():
 
 def run_invert_triangle():
     """Displays an inverted triangle (rows determined by user)."""
-
     row_count = input("Enter number of rows to display: ")
 
     if validate_input(row_count):
@@ -273,6 +284,8 @@ def main():
                                                     "echo",
                                                     "guess num",
                                                     "invert triangle",
+                                                    "commands",
+                                                    "help",
                                                     "quit"]
 
     # Each joke in the following bank was retrieved from
@@ -288,10 +301,7 @@ def main():
                  "Did you hear about the monkeys who shared an Amazon account?"
                  " They were Prime mates."]
 
-    print("==========\nAvailable commands:\n")
-
-    # Print statement with separator argument according to proj. specs
-    print(*all_available_commands, sep=", ", end="\n==========\n")
+    show_all_commands(all_available_commands)
 
     user_input = input("Enter a command: ").lower()
 
@@ -354,13 +364,25 @@ def main():
                 # the first number incorrectly.
 
                 # "not" boolean operator according to project specifications
-                if not validate_input(input_num1):
-                    print("\nNumber 1 isn't valid.")
+                if not validate_input(input_num1) and not validate_input(
+                        input_num2):
+                    # Display a different error message
+                    # if both numbers are invalid
+                    print("\nUh oh! Neither of those are numbers. Please try "
+                          "again.")
                     result = "invalid"
+                else:  # Either the numbers are valid, or just one is invalid
+                    if not validate_input(input_num1):
+                        print(
+                            "\nIt looks like your first input isn't a number."
+                            " Please try again.")
+                        result = "invalid"
 
-                if not validate_input(input_num2):
-                    print("Number 2 isn't valid.")
-                    result = "invalid"
+                    if not validate_input(input_num2):
+                        print(
+                            "\nIt looks like your second input isn't a number."
+                            " Please try again.")
+                        result = "invalid"
 
                 # The result *should* never be a None type,
                 # but we'll check just to make sure
@@ -384,6 +406,9 @@ def main():
                 elif user_input == "invert triangle":
                     # Show an inverted triangle (rows determined by user)
                     run_invert_triangle()
+                elif user_input == "commands" or user_input == "help":
+                    # Show all available commands
+                    show_all_commands(all_available_commands)
                 elif user_input == "quit":  # User wants to quit the program
                     quit_input = input("Are you sure you want to quit? "
                                        "Enter Y to confirm. ").lower()
