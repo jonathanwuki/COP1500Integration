@@ -27,7 +27,7 @@ For this project, we were to create one program integrating all of the programmi
 - [x] Must act as one cohesive program
 - [x] Min. 150 lines of code
 
-## Installation/Building
+## Building & Installing
 In order to build this project, you need to have Python 3 or later. I used PyCharm for compliation, but any IDE or interpreter should work.
 
 #### Instructions:
